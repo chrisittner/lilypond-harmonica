@@ -45,20 +45,20 @@ dip =
 
 #(define* (blow hole #:optional (bends 0))
   (case bends
-    ((0) (markup (#:concat (hole "+"))))
-    ((1) (markup (#:concat (hole "+'"))))
-    ((2) (markup (#:concat (hole "+''"))))
-    ((3) (markup (#:concat (hole "+'''"))))
+    ((0) (markup (#:concat (hole ""))))
+    ((1) (markup (#:concat (hole "'"))))
+    ((2) (markup (#:concat (hole "''"))))
+    ((3) (markup (#:concat (hole "'''"))))
     (else (markup " "))))
 
 
 #(define* (draw hole #:optional (bends 0))
   (case bends
     ;;; ((0) (markup hole))
-    ((0) (if (equal? hole "2")(markup "2/3+")(markup hole)))
-    ((1) (markup (#:concat (hole "'"))))
-    ((2) (markup (#:concat (hole "''"))))
-    ((3) (markup (#:concat (hole "'''"))))
+    ((0) (if (equal? hole "2")(markup "2-/3")(markup (#:concat (hole "-")))))
+    ((1) (markup (#:concat (hole "-'"))))
+    ((2) (markup (#:concat (hole "-''"))))
+    ((3) (markup (#:concat (hole "-'''"))))
     (else (markup " "))))
 
 #(define (get-harmonica-tab NoteEvent)
@@ -141,4 +141,3 @@ harmonicaTab =
   (parser location music)
   (ly:music?)
   (music-map add-tab-numbers music))
-
