@@ -62,7 +62,7 @@ dip =
     (else (markup " "))))
 
 #(define (get-harmonica-tab NoteEvent)
-   (case (ly:pitch-semitones (ly:music-property NoteEvent 'pitch))
+   (case (+ (ly:pitch-semitones (ly:music-property NoteEvent 'pitch)) 12)
     ((0) (blow "1"))
     ((1) (draw "1" 1))
     ((2) (draw "1"))
